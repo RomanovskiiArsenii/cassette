@@ -1,0 +1,108 @@
+:root {
+    --backgroundColor: rgb(134, 156, 153);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--backgroundColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cassette {
+    position: relative;
+    width: 30vw;
+    height: 18vw;
+    display: flex;
+    justify-content: center;
+}
+
+.cassette_static {
+    position: relative;
+    z-index: 2;
+}
+
+.cassette_moving {
+    position: absolute;
+    width: 29.29vw;
+    top: 5.63vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    transform: translateX(-0.19vw);
+    height: 3.5vw;
+    z-index: 1;
+}
+
+.cassette_moving_el {
+    width: 3.5vw;
+    animation: cassetteElRotate 4s linear infinite alternate;
+}
+
+.cassette_moving_hole {
+    width: 3.5vw;
+    height: 3.5vw;
+    border-radius: 50%;
+    background-color: var(--backgroundColor);
+}
+
+.cassette_moving_tape {
+    height: 7vw;
+    width: 7vw;
+    border-radius: 50%;
+    background-color: #1d1d1d;
+    border: 1px solid #888;
+}
+
+.cassette_moving_tape.right {
+    animation: cassetteTapeShrink 4s linear infinite alternate;
+}
+
+.cassette_moving_tape.left {
+    animation: cassetteTapeGrow 4s linear infinite alternate;
+}
+
+@keyframes cassetteElRotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes cassetteTapeGrow {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(2);
+    }
+}
+
+@keyframes cassetteTapeShrink {
+    from {
+        transform: scale(2);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes cassetteFadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
