@@ -19,20 +19,31 @@
 
 .tape_wrapper {
     position: absolute;
-    top: -14.5vw;
+    top: 13.5vw;
+    transform: rotate(180deg);
 }
 
 .tape {
-    z-index: 10;
     width: 22vw;
     height: 18vw;
     stroke-dasharray: 302%;
     stroke-dashoffset: 302%;
-    transition: stroke-dashoffset 1s ease-in-out;
+    /* transition: stroke-dashoffset 1s ease-in-out; */
+    animation: brokeTape 1.2s ease alternate infinite;
+}
+
+@keyframes brokeTape {
+    from {
+        stroke-dashoffset: 302%;
+    }
+    to {
+        stroke-dashoffset: 0%;
+    }
 }
 
 .cassette {
     position: relative;
+    bottom: 10vw;
     width: 30vw;
     height: 18vw;
     display: flex;
